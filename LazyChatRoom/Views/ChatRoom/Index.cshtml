@@ -1,0 +1,288 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lazy ChatRoom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/dist/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="~/assets/vendors/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/dist/css/app.css" rel="stylesheet" />
+    <link href="~/dist/css/theme/default-theme.css" rel="stylesheet" />
+</head>
+<body class="default-theme">
+    <div class="main-wrapper">
+        <div class="chatapp">
+            <!-- navbar start -->
+            <nav id="navbar" class="navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom shadow-sm">
+                <a class="navbar-brand" href="index.html">
+                    <img src="~/assets/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                    <h1>Lazy ChatRoom</h1>
+                </a>
+
+                <div class="ml-auto d-flex align-items-center">
+                    <div class="iconbox iconbox-search btn-hovered-light">
+                    </div>
+                    <div class="navbar-nav">
+                        <div class="dropdown user-nav">
+                            <div class="user-avatar user-avatar-sm user-avatar-rounded" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="thumbnail" id="head" />
+                            </div>
+                        </div>
+                        <div class="iconbox-searchbar">
+                            <form>
+                                <input type="text" class="form-control" placeholder="Search here..." autofocus>
+
+                                <button class="search-submit" type="submit">
+                                    <i class="mdi mdi-magnify"></i>
+                                </button>
+                                <a href="javascript:void(0)" class="search-close">
+                                    <i class="mdi mdi-arrow-left"></i>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar end -->
+            <!-- main content start -->
+            <div class="chatapp__content">
+                <div class="chatapp__messagetab">
+                    <!-- user list start -->
+                    <div class="chatapp-user-list">
+                        <div class="chatapp-user-list-body custom-scrollbar">
+                            <div class="chatapp__headingbar">
+                                <h6>All ChatRooms</h6>
+                            </div>
+
+                            <ul class="list-unstyled">
+                                <li class="active">
+                                    <div class="conversation ">
+                                        <div class="user-avatar user-avatar-rounded">
+                                            <img class="thumbnail" src="~/assets/images/vs.jpg" />
+                                        </div>
+                                        <div class="conversation__details">
+                                            <div class="conversation__name">
+                                                <h5 class="conversation__name--title">.Net Core</h5>
+                                            </div>
+                                            <div class="conversation__message">
+                                                <div class="conversation__message-preview">
+                                                    探讨ASP.Net Core相关技, 摆脱Webform全家桶, 走进微服务
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="conversation ">
+                                        <div class="user-avatar user-avatar-rounded">
+                                            <img class="thumbnail" src="~/assets/images/weixin.jpeg" />
+                                        </div>
+                                        <div class="conversation__details">
+                                            <div class="conversation__name">
+                                                <h5 class="conversation__name--title">微信开发</h5>
+                                            </div>
+                                            <div class="conversation__message">
+                                                <div class="conversation__message-preview">
+                                                    结合.NET相关技术开发微信平台
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="conversation ">
+                                        <div class="user-avatar user-avatar-rounded">
+                                            <img class="thumbnail" src="~/assets/images/logo.png" />
+                                        </div>
+                                        <div class="conversation__details">
+                                            <div class="conversation__name">
+                                                <h5 class="conversation__name--title">LazyWeChat</h5>
+                                            </div>
+                                            <div class="conversation__message">
+                                                <div class="conversation__message-preview">
+                                                    LazyWeChat框架答疑
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- user list end -->
+                    <!-- conversations start -->
+                    <div class="chatapp__conversations">
+                        <!-- conversation wrapper start -->
+                        <div class="conversation-wrapper">
+                            <div class="conversation-panel">
+                                <div class="conversation-panel__head">
+                                    <div class="back-button-md">
+                                        <i class="mdi mdi-arrow-left"></i>
+                                    </div>
+                                    <div class="conversation-panel__avatar info-panel-opener">
+                                        <div class="user-avatar user-avatar-rounded">
+                                            <img class="thumbnail" id="imgChatRoomLogo" src="~/assets/images/vs.jpg" />
+                                        </div>
+                                        <div class="conversation__name">
+                                            <div id="chatRoomName" class="conversation__name--title">.Net Core</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="conversation-panel__body">
+                                    <div class="custom-scrollbar2">
+                                        <div class="container">
+                                            <ul id="messagesList" class="chat-style-2">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="conversation-panel__footer">
+                                    <div class="composer">
+                                        <div class="composer__middle">
+                                            <textarea class="form-control" id="messageInput" rows="1" placeholder="Type a message..."></textarea>
+                                        </div>
+                                        <div class="composer__right">
+                                            <div id="btnSend" class="composer__right--send">
+                                                <i class="mdi mdi-send"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- conversation panel end -->
+                    </div>
+                    <!-- conversations end -->
+                </div>
+            </div>
+            <!-- main content end -->
+        </div>
+    </div>
+    <script src="~/dist/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/dist/js/popper.min.js"></script>
+    <script src="~/assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/vendors/material-floating-button/dist/mfb.min.js"></script>
+    <script src="~/dist/js/main.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script>
+        $(function () {
+            if ('@ViewBag.userInfo' != '') {
+                sessionStorage.setItem('userinfo', '@Html.Raw(ViewBag.userInfo)')
+            }
+
+            let title = ".Net Core"
+            let connection = new signalR.HubConnectionBuilder()
+                .withUrl("/chatHub?chatName=" + title)
+                .withAutomaticReconnect()
+                .build();
+
+            let userinfo = JSON.parse(sessionStorage["userinfo"])
+
+            $('#head').attr('src', userinfo.headimgurl);
+
+            $('.list-unstyled li').click(function () {
+                var key = userinfo.unionid + '-' + title
+                localStorage[key] = $('#messagesList').html()
+
+                let src = $(this).find('img').attr('src')
+                title = $(this).find('h5').html()
+
+                $('#imgChatRoomLogo').attr('src', src)
+                $('#chatRoomName').html(title)
+                $('#messagesList').html('')
+
+                key = userinfo.unionid + '-' + title
+                if (localStorage[key] !== null) {
+                    $('#messagesList').html(localStorage[key])
+                }
+
+                connection.stop().then(function () {
+                    connection = new signalR.HubConnectionBuilder()
+                        .withUrl("/chatHub?chatName=" + title)
+                        .withAutomaticReconnect()
+                        .build();
+                    connection.start()
+
+                    connection.on("ReceiveMessage", function (unionid, avatar, message) {
+                        receiveMessage(unionid, avatar, message)
+                    });
+                })
+            })
+
+            function receiveMessage(unionid, avatar, message) {
+                var msg = "";
+                var global_time = current();
+                if (userinfo.unionid == unionid) {
+                    msg = "<li class='message sent'>\
+                                <div class='message__text'>\
+                                    " + message + "\
+                                    <div class='metadata'>\
+                                        <span class='time'>" + global_time + "</span>\
+                                    </div>\
+                                </div>\
+                                <div style='margin-left:3px' class='user-avatar user-avatar-sm'>\
+                                    <img class='thumbnail' src='"+ avatar + "' />\
+                                </div>\
+                            </li>";
+                } else {
+                    msg = "<li class='message received'>\
+                                <div style='margin-right:3px;margin-top:12px' class='user-avatar user-avatar-sm'>\
+                                    <img class='thumbnail' src='" + avatar + "' />\
+                                </div>\
+                                <div class='message__text'>\
+                                    " + message + "\
+                                    <div class='metadata'>\
+                                        <span class='time'>" + global_time + "</span>\
+                                    </div>\
+                                </div>\
+                            </li>";
+                }
+                console.log(msg)
+                $("#messagesList").append(msg);
+            }
+
+            connection.start().then(function () {
+                console.log('init-connected')
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            connection.on("ReceiveMessage", function (unionid, avatar, message) {
+                receiveMessage(unionid, avatar, message)
+            });
+
+            $('#btnSend').click(function () {
+                var message = $("#messageInput").val();
+                $("#messageInput").val('');
+                var user = "{'unionid':'" + userinfo.unionid + "','headimgurl':'" + userinfo.headimgurl + "','chatName':'" + title + "'}";
+                connection.invoke("SendMessage", user, message).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            })
+        })
+
+        function current() {
+            var d = new Date(), str = '';
+            var hours = d.getHours()
+            if (hours > 12) {
+                str = '下午 ';
+                hours -= 12;
+            }
+            else
+                str = '上午 ';
+            str += hours + ':';
+            str += d.getMinutes() + '';
+            return str;
+        }
+    </script>
+</body>
+</html>
